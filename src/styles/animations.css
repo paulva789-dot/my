@@ -1,0 +1,295 @@
+/*==========================================
+PAUL ELOUNDOU PORTFOLIO
+ANIMATIONS.CSS
+==========================================*/
+
+/* ==========================
+PAGE FADE ANIMATION
+========================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Removed opacity:0 - text always visible */
+  animation: PageFade .9s ease forwards;
+  overflow-x: hidden;
+}
+
+@keyframes PageFade {
+  0% {
+    opacity: 0.8;
+    transform: translateY(25px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ==========================
+SECTION FADE
+========================== */
+
+section {
+  /* Text always visible - removed opacity:0 */
+  opacity: 1;
+  transform: translateY(0);
+  /* Removed animation that hides sections */
+}
+
+section.show {
+  /* No longer needed but kept for compatibility */
+  animation: none;
+}
+
+/* Removed SectionFade keyframes - no longer used */
+
+/* ==========================
+FLOATING PROFILE IMAGE
+========================== */
+
+.hero-right .image-box img,
+.about-image img {
+  animation: Float 5s ease-in-out infinite;
+}
+
+@keyframes Float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ==========================
+CARD HOVER
+========================== */
+
+.project-card,
+.skill-card,
+.service-card,
+.achievement-card {
+  transition: .4s ease;
+}
+
+.project-card:hover,
+.skill-card:hover,
+.service-card:hover,
+.achievement-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(124, 58, 237, .35);
+}
+
+/* ==========================
+BUTTON EFFECT
+========================== */
+
+.btn-primary,
+.btn-secondary {
+  transition: .35s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(124, 58, 237, .45);
+}
+
+/* ==========================
+NAVIGATION HOVER
+========================== */
+
+.nav-links a {
+  position: relative;
+  transition: .3s;
+  opacity: 1; /* Always visible */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #7C3AED;
+  transition: .35s;
+  border-radius: 30px;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ==========================
+LOGO GLOW
+========================== */
+
+.logo h2 {
+  animation: Glow 3s infinite alternate;
+}
+
+@keyframes Glow {
+  from {
+    text-shadow: 0 0 10px rgba(124, 58, 237, .4);
+  }
+  to {
+    text-shadow:
+      0 0 15px #7C3AED,
+      0 0 25px #A855F7,
+      0 0 35px #9333EA;
+  }
+}
+
+/* ==========================
+SOCIAL ICONS
+========================== */
+
+.footer-social a,
+.social-links a {
+  transition: .4s;
+  opacity: 1; /* Always visible */
+}
+
+.footer-social a:hover,
+.social-links a:hover {
+  transform: translateY(-8px) rotate(360deg);
+}
+
+/* ==========================
+TIMELINE
+========================== */
+
+.timeline-item {
+  transition: .5s;
+  opacity: 1; /* Always visible */
+}
+
+.timeline-item:hover {
+  transform: translateX(15px);
+}
+
+/* ==========================
+PROGRESS BAR
+========================== */
+
+.progress {
+  animation: ProgressLoad 2s ease;
+}
+
+@keyframes ProgressLoad {
+  0% {
+    width: 0;
+  }
+}
+
+/* ==========================
+PAGE TITLE
+========================== */
+
+.page-banner h1 {
+  animation: TitleSlide .9s ease;
+  opacity: 1; /* Always visible */
+}
+
+@keyframes TitleSlide {
+  from {
+    opacity: 0.5;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ==========================
+IMAGE HOVER
+========================== */
+
+img {
+  transition: .4s;
+}
+
+.project-card img:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================
+GRADIENT BACKGROUND
+========================== */
+
+.hero {
+  background-size: 400% 400%;
+  animation: GradientMove 12s ease infinite;
+}
+
+@keyframes GradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ==========================
+PAGE TRANSITIONS
+========================== */
+
+body.loaded {
+  opacity: 1;
+  transition:
+    opacity .45s ease,
+    transform .45s ease,
+    filter .45s ease;
+}
+
+/* Removed fade-out class - prevents text disappearing */
+
+/* ==========================
+STICKY HEADER
+========================== */
+
+header.sticky {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background: rgba(15, 23, 42, .92);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .25);
+  transition: .35s;
+}
+
+/* ==========================
+TEXT VISIBILITY FIX
+========================== */
+
+/* Ensure all text elements are always visible */
+h1, h2, h3, h4, h5, h6, p, a, span, li {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Ensure nav links are always readable */
+.nav-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ensure buttons always show text */
+.btn-primary,
+.btn-secondary {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
