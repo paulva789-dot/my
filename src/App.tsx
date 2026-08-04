@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Loader from './components/Loader';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollControls from './components/ScrollControls';
 import Home from './pages/Home';
 import About from './pages/About';
 import Skills from './pages/Skills';
@@ -35,6 +36,7 @@ const App: React.FC = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <ScrollControls />
     </Router>
   );
 };

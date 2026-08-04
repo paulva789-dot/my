@@ -64,12 +64,18 @@ function Contact() {
             <a className="btn-primary" href="mailto:pauleloundou@icloud.com">
               Say hello
             </a>
+            <a
+              className="btn-secondary"
+              href="mailto:pauleloundou@icloud.com?subject=Hello&body=Hello,%20How%20can%20we%20be%20of%20Service%20to%20you.%20Thanks%20For%20Getting%20in%20Contact"
+            >
+              Quick hello
+            </a>
             <a className="btn-secondary" href="#contact-form">
               Send a message
             </a>
           </div>
         </div>
-
+ 
         <div className="contact-hero-card">
           <h3>What I can help with</h3>
           <ul>
@@ -78,6 +84,9 @@ function Contact() {
             <li>Creative landing pages and digital experiences</li>
           </ul>
           <p className="hero-note">Usually replies within 24 hours.</p>
+          <p className="hero-note hero-quick-response">
+            Hello, How can we be of Service to you. Thanks For Getting in Contact
+          </p>
         </div>
       </section>
 

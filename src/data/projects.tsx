@@ -3,7 +3,7 @@ const projects = [
     title: "Mobile Banking App",
     description:
       "A secure Flutter banking application with authentication and a modern interface.",
-    image: "/images/mobile%20banking.png",
+    image: "/images/mobile-banking.png",
     technologies: ["Flutter", "Firebase"],
     github: "#",
     demo: "#",
