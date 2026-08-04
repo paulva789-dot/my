@@ -48,14 +48,10 @@ function Navbar() {
         aria-label="Toggle navigation menu"
         aria-expanded={isMenuOpen}
       >
-        <span className="hamburger-brand" aria-hidden>
-          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <circle cx="8" cy="8" r="6" fill="#9F7AEA" />
-          </svg>
-        </span>
-        <span />
-        <span />
-        <span />
+        <span className="hamburger-line" />
+        <span className="hamburger-line" />
+        <span className="hamburger-line" />
+        <span className="hamburger-line" />
       </button>
 
       <header className="navbar">
