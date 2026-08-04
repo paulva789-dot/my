@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
@@ -118,9 +119,9 @@ function Home() {
             strong experience for your audience.
           </p>
           <div className="home-actions">
-            <a href="/contact" className="btn-primary">
+            <Link to="/contact" className="btn-primary">
               Go to contact page
-            </a>
+            </Link>
             <a href="mailto:pauleloundou@icloud.com" className="btn-secondary">
               Email me
             </a>
