@@ -1,46 +1,111 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useTheme } from "../context/ThemeContext";
 
+const navigationLinks = [
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/skills", label: "Skills" },
+  { to: "/projects", label: "Projects" },
+  { to: "/experience", label: "Experience" },
+  { to: "/services", label: "Services" },
+  { to: "/contact", label: "Contact" },
+];
+
 function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="navbar">
-      <div className="logo">
-        <h1>My Portfolio</h1>
-      </div>
-
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/skills">Skills</NavLink>
-          </li>
-          <li>
-            <NavLink to="/projects">Projects</NavLink>
-          </li>
-          <li>
-            <NavLink to="/experience">Experience</NavLink>
-          </li>
-          <li>
-            <NavLink to="/services">Services</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Contact</NavLink>
-          </li>
-        </ul>
-      </nav>
-
-      <button className="theme-btn" onClick={toggleTheme}>
-        {theme === "dark" ? <FaSun /> : <FaMoon />}
+    <div className="navbar-shell">
+      <button
+        type="button"
+        className={`top-left-hamburger ${isMenuOpen ? "open" : ""}`}
+        onClick={() => setIsMenuOpen((open) => !open)}
+        aria-label="Toggle navigation menu"
+        aria-expanded={isMenuOpen}
+      >
+        <span className="hamburger-brand" aria-hidden>
+          <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+            <circle cx="8" cy="8" r="6" fill="#9F7AEA" />
+          </svg>
+        </span>
+        <span />
+        <span />
+        <span />
       </button>
-    </header>
+
+      <header className="navbar">
+        <div className="logo">
+          <h1>My Portfolio</h1>
+        </div>
+
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          <ul>
+            {navigationLinks.map((link) => (
+              <li key={link.to}>
+                <NavLink to={link.to} end={link.to === "/"} onClick={closeMenu}>
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="navbar-actions">
+          <button className="theme-btn" onClick={toggleTheme}>
+            {theme === "dark" ? <FaSun /> : <FaMoon />}
+          </button>
+        </div>
+      </header>
+
+      {isMenuOpen && (
+        <>
+          <div className="mobile-menu-overlay" onClick={closeMenu} />
+          <div className="mobile-menu-panel">
+            <nav aria-label="Mobile navigation">
+              <ul className="mobile-nav-list">
+                {navigationLinks.map((link) => (
+                  <li key={link.to}>
+                    <NavLink
+                      to={link.to}
+                      end={link.to === "/"}
+                      className={({ isActive }) => (isActive ? "mobile-nav-link active" : "mobile-nav-link")}
+                      onClick={closeMenu}
+                    >
+                      {link.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </>
+      )}
+    </div>
   );
 }
 

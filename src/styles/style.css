@@ -67,47 +67,48 @@ animation:fadeIn .8s ease;
 
 .top-left-hamburger{
  position:fixed;
- top:16px;
- left:16px;
+top:14px;
+left:14px;
  z-index:1000;
  display:inline-flex;
 align-items:center;
 gap:8px;
-min-width:56px;
-height:48px;
+min-width:44px;
+height:40px;
 border:none;
-border-radius:12px;
-background:linear-gradient(135deg,#1b3550,#15324a);
+border-radius:10px;
+background:rgba(21,50,74,0.9);
 color:white;
 cursor:pointer;
-transition:transform .18s ease, box-shadow .18s ease;
-padding:6px 10px;
-box-shadow:0 6px 18px rgba(3,20,34,0.6), inset 0 -6px 18px rgba(255,255,255,0.02);
+transition:transform .14s ease, box-shadow .14s ease, background .14s ease;
+padding:4px 8px;
+box-shadow:0 6px 14px rgba(3,20,34,0.35);
 }
 
-.top-left-hamburger:focus{outline:2px solid rgba(159,122,234,0.25);}
+.top-left-hamburger:focus{outline:2px solid rgba(159,122,234,0.14);}
 
 .top-left-hamburger .hamburger-brand{
 display:inline-flex;
 align-items:center;
 justify-content:center;
-width:34px;
-height:34px;
-border-radius:8px;
-background:linear-gradient(135deg,#9F7AEA,#7C3AED);
+width:20px;
+height:20px;
+border-radius:6px;
+background:transparent;
 color:white;
 font-weight:700;
-font-size:16px;
-box-shadow:0 6px 16px rgba(124,58,237,0.18);
+font-size:12px;
+box-shadow:none;
+border:1px solid rgba(255,255,255,0.06);
 }
 
 .top-left-hamburger > span:not(.hamburger-brand){
 display:block;
-width:18px;
+width:16px;
 height:2px;
 background:#fff;
 border-radius:999px;
-transition:transform .22s ease, opacity .18s ease;
+transition:transform .18s ease, opacity .14s ease;
 }
 
 .top-left-hamburger > span:not(.hamburger-brand) + span{
