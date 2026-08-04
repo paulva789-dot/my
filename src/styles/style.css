@@ -6,17 +6,22 @@ scroll-behavior:smooth;
 }
 
 body{
-
+ 
 font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-
-background:#081B33;
-
+ 
+background:#040814;
+ 
 color:#fff;
-
+ 
 overflow-x:hidden;
-
+ 
 transition:.4s;
+ 
+}
 
+body.dark,
+body.light.dark-mode{
+background:#040814;
 }
 
 a{
@@ -56,102 +61,230 @@ animation:fadeIn .8s ease;
 }
 
 
-.navbar{
+.navbar-shell{
+ position:relative;
+}
 
-display:flex;
-
-justify-content:space-between;
-
+.top-left-hamburger{
+ position:fixed;
+ top:16px;
+ left:16px;
+ z-index:1000;
+ display:inline-flex;
 align-items:center;
+gap:8px;
+min-width:56px;
+height:48px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#1b3550,#15324a);
+color:white;
+cursor:pointer;
+transition:transform .18s ease, box-shadow .18s ease;
+padding:6px 10px;
+box-shadow:0 6px 18px rgba(3,20,34,0.6), inset 0 -6px 18px rgba(255,255,255,0.02);
+}
 
-padding:22px 8%;
+.top-left-hamburger:focus{outline:2px solid rgba(159,122,234,0.25);}
 
-background:#0B2343;
+.top-left-hamburger .hamburger-brand{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:34px;
+height:34px;
+border-radius:8px;
+background:linear-gradient(135deg,#9F7AEA,#7C3AED);
+color:white;
+font-weight:700;
+font-size:16px;
+box-shadow:0 6px 16px rgba(124,58,237,0.18);
+}
 
-position:sticky;
+.top-left-hamburger > span:not(.hamburger-brand){
+display:block;
+width:18px;
+height:2px;
+background:#fff;
+border-radius:999px;
+transition:transform .22s ease, opacity .18s ease;
+}
 
-top:0;
+.top-left-hamburger > span:not(.hamburger-brand) + span{
+margin-top:4px;
+}
 
-z-index:999;
+.top-left-hamburger.open > span:not(.hamburger-brand):nth-child(2){
+transform: translateY(8px) rotate(45deg);
+}
 
-box-shadow:0 4px 20px rgba(0,0,0,.15);
+.top-left-hamburger.open > span:not(.hamburger-brand):nth-child(3){
+opacity:0;
+}
 
+.top-left-hamburger.open > span:not(.hamburger-brand):nth-child(4){
+transform: translateY(-8px) rotate(-45deg);
+}
+
+.hero-quick-response{
+margin-top:18px;
+color:#D8B4FE;
+font-size:15px;
+line-height:1.7;
+}
+
+.navbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:22px 8%;
+ padding-left:96px;
+ background:#031427;
+ position:sticky;
+ top:0;
+ z-index:999;
+ box-shadow:0 4px 30px rgba(0,0,0,.2);
 }
 
 .logo h1{
-
-font-size:36px;
-
-font-weight:bold;
-
-color:#6c41c2;
-
+ font-size:36px;
+ font-weight:bold;
+ color:#6c41c2;
 }
 
-nav ul{
-
-display:flex;
-
-gap:35px;
-
+.desktop-nav ul{
+ display:flex;
+ gap:35px;
 }
 
-nav ul li{
-
-font-size:17px;
-
-font-weight:600;
-
+.desktop-nav ul li{
+ font-size:17px;
+ font-weight:600;
 }
 
-nav ul li a{
-
-padding-bottom:5px;
-
-transition:.3s;
-
+.desktop-nav ul li a{
+ padding-bottom:5px;
+ transition:.3s;
 }
 
-nav ul li a:hover{
-
-color:#9F7AEA;
-
+.desktop-nav ul li a:hover{
+ color:#9F7AEA;
 }
 
-nav ul li a.active{
+.desktop-nav ul li a.active{
+ color:#9F7AEA;
+ border-bottom:2px solid #9F7AEA;
+}
 
-color:#9F7AEA;
-
-border-bottom:2px solid #9F7AEA;
-
+.navbar-actions{
+ display:flex;
+ align-items:center;
+ gap:12px;
 }
 
 .theme-btn{
-
-width:50px;
-
-height:50px;
-
-border:none;
-
-border-radius:50%;
-
-background:#9F7AEA;
-
-color:white;
-
-font-size:20px;
-
-cursor:pointer;
-
-transition:.3s;
-
+ width:50px;
+ height:50px;
+ border:none;
+ border-radius:50%;
+ background:#9F7AEA;
+ color:white;
+ font-size:20px;
+ cursor:pointer;
+ transition:.3s;
 }
 
 .theme-btn:hover{
+ transform:rotate(180deg);
+}
 
-transform:rotate(180deg);
+.mobile-menu-toggle{
+ display:inline-flex;
+ width:48px;
+ height:48px;
+ border:none;
+ border-radius:14px;
+ background:#162742;
+ color:white;
+ cursor:pointer;
+ transition:.3s;
+ align-items:center;
+ justify-content:center;
+ padding:0;
+ position:relative;
+}
 
+.mobile-menu-toggle span{
+ display:block;
+ width:22px;
+ height:2px;
+ background:#fff;
+ border-radius:999px;
+ transition:.25s ease;
+ position:relative;
+}
+
+.mobile-menu-toggle span + span{
+ margin-top:6px;
+}
+
+.mobile-menu-toggle.open span:nth-child(1){
+ transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle.open span:nth-child(2){
+ opacity:0;
+}
+
+.mobile-menu-toggle.open span:nth-child(3){
+ transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobile-menu-toggle:hover{
+ transform:scale(1.04);
+}
+
+.mobile-menu-overlay{
+ position:fixed;
+ inset:0;
+ background:rgba(2, 6, 23, 0.72);
+ z-index:998;
+}
+
+.mobile-menu-panel{
+ position:fixed;
+ top:90px;
+ right:20px;
+ width:min(320px, calc(100% - 32px));
+ background:#05162e;
+ border:1px solid rgba(159, 122, 234, 0.25);
+ border-radius:18px;
+ box-shadow:0 20px 45px rgba(2, 6, 23, 0.35);
+ padding:18px 0;
+ z-index:999;
+}
+
+.mobile-nav-list{
+ display:flex;
+ flex-direction:column;
+ gap:6px;
+ padding:0 12px;
+}
+
+.mobile-nav-link{
+ display:block;
+ padding:12px 16px;
+ border-radius:12px;
+ font-size:16px;
+ font-weight:600;
+ color:#E2E8F0;
+ transition:.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active{
+ background:rgba(159, 122, 234, 0.16);
+ color:#9F7AEA;
 }
 
 .hero{
@@ -397,6 +530,36 @@ letter-spacing:1px;
 
 .loader h1 {
   animation: loaderPulse 1.1s ease-in-out infinite;
+}
+
+.scroll-controls{
+  position:fixed;
+  right:20px;
+  bottom:24px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:1000;
+}
+
+.scroll-control{
+  width:44px;
+  height:44px;
+  border:none;
+  border-radius:14px;
+  background:rgba(15, 26, 53, 0.9);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.3s;
+  box-shadow:0 10px 24px rgba(0,0,0,.24);
+}
+
+.scroll-control:hover{
+  transform:translateY(-2px);
+  background:rgba(31, 44, 75, 0.96);
 }
 
 @keyframes fadeIn{
@@ -1498,27 +1661,24 @@ text-align:center;
 }
 
 @media (max-width:768px){
-
 .navbar{
-
-flex-direction:column;
-
-gap:20px;
-
-padding:20px;
-
+ flex-wrap:wrap;
+ gap:16px;
+ padding:18px 20px;
 }
 
-nav ul{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:20px;
-
+.desktop-nav{
+ display:none;
 }
 
+.navbar-actions{
+ margin-left:auto;
+}
+
+.logo h1{
+ font-size:28px;
+}
+ 
 .hero h1{
 
 font-size:40px;
