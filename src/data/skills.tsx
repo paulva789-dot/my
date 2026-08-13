@@ -1,8 +1,27 @@
+import type { IconType } from "react-icons";
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaReact,
+  FaMobileAlt,
+  FaPython,
+  FaJava,
+  FaCode,
+  FaGitAlt,
+  FaGithub,
+  FaFire,
+  FaDatabase,
+  FaFigma,
+  FaServer,
+  FaLinux,
+} from "react-icons/fa";
+
 export type SkillItem = {
   name: string;
   level?: number;
   description?: string;
-  iconClassName?: string;
+  icon?: IconType;
 };
 
 export const skillSections = {
@@ -10,53 +29,53 @@ export const skillSections = {
     {
       name: "HTML5",
       description: "Semantic HTML, Accessibility, SEO",
-      iconClassName: "fab fa-html5",
+      icon: FaHtml5,
     },
     {
       name: "CSS3",
       description: "Flexbox, Grid, Animations, Responsive Design",
-      iconClassName: "fab fa-css3-alt",
+      icon: FaCss3Alt,
     },
     {
       name: "JavaScript",
       description: "DOM, ES6+, APIs, Async Programming",
-      iconClassName: "fab fa-js",
+      icon: FaJs,
     },
     {
       name: "React",
       description: "Components, Hooks, State Management",
-      iconClassName: "fab fa-react",
+      icon: FaReact,
     },
     {
       name: "Flutter",
       description: "Cross-platform Mobile Development",
-      iconClassName: "fas fa-mobile-alt",
+      icon: FaMobileAlt,
     },
     {
       name: "Python",
       description: "Automation, Data Structures, OOP",
-      iconClassName: "fab fa-python",
+      icon: FaPython,
     },
     {
       name: "Java",
       description: "Object-Oriented Programming",
-      iconClassName: "fab fa-java",
+      icon: FaJava,
     },
     {
       name: "C#",
       description: "Desktop Applications and .NET Basics",
-      iconClassName: "fas fa-code",
+      icon: FaCode,
     },
   ] as SkillItem[],
   tools: [
-    { name: "Git", iconClassName: "fab fa-git-alt" },
-    { name: "GitHub", iconClassName: "fab fa-github" },
-    { name: "Firebase", iconClassName: "fas fa-fire" },
-    { name: "MySQL", iconClassName: "fas fa-database" },
-    { name: "VS Code", iconClassName: "fas fa-code" },
-    { name: "Figma", iconClassName: "fab fa-figma" },
-    { name: "XAMPP", iconClassName: "fas fa-server" },
-    { name: "Linux", iconClassName: "fab fa-linux" },
+    { name: "Git", icon: FaGitAlt },
+    { name: "GitHub", icon: FaGithub },
+    { name: "Firebase", icon: FaFire },
+    { name: "MySQL", icon: FaDatabase },
+    { name: "VS Code", icon: FaCode },
+    { name: "Figma", icon: FaFigma },
+    { name: "XAMPP", icon: FaServer },
+    { name: "Linux", icon: FaLinux },
   ] as SkillItem[],
   proficiency: [
     { name: "HTML5", level: 95 },

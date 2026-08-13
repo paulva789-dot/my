@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
 const navigationLinks = [
   { to: "/", label: "Home" },
@@ -17,10 +17,12 @@ function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const [lastPathname, setLastPathname] = useState(location.pathname);
 
-  useEffect(() => {
+  if (location.pathname !== lastPathname) {
+    setLastPathname(location.pathname);
     setIsMenuOpen(false);
-  }, [location.pathname]);
+  }
 
   useEffect(() => {
     if (!isMenuOpen) {

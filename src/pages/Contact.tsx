@@ -2,6 +2,7 @@ import { type ChangeEvent, type FormEvent, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageTransition from "../components/PageTransition";
+import { sendEmail } from "../utils/email";
 import {
   FaEnvelope,
   FaMapMarkerAlt,
@@ -21,6 +22,8 @@ interface ContactFormData {
   message: string;
 }
 
+type SubmitStatus = "idle" | "sending" | "success" | "error";
+
 function Contact() {
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
@@ -28,11 +31,20 @@ function Contact() {
     subject: "",
     message: "",
   });
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setStatus("sending");
+
+    try {
+      await sendEmail(e.currentTarget);
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setStatus("error");
+    }
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -192,10 +204,27 @@ function Contact() {
                 required
               />
             </div>
-            <button type="submit" className="btn-primary contact-submit">
+            <button
+              type="submit"
+              className="btn-primary contact-submit"
+              disabled={status === "sending"}
+            >
               <FaPaperPlane />
-              Send Message
+              {status === "sending" ? "Sending..." : "Send Message"}
             </button>
+
+            {status === "success" && (
+              <p className="form-status form-status-success" role="status">
+                Message sent — thanks for reaching out, I'll reply within 24 hours.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="form-status form-status-error" role="alert">
+                Something went wrong sending your message. Please try again or
+                email me directly at{" "}
+                <a href="mailto:pauleloundou@icloud.com">pauleloundou@icloud.com</a>.
+              </p>
+            )}
           </form>
         </div>
       </section>

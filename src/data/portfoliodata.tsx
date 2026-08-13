@@ -116,7 +116,7 @@ export const portfolioData = {
   name: "Paul Sale Eloundou",
   title: "Computer Engineer",
   email: "pauleloundou@icloud.com",
-  cvPath: "assets/CV.pdf",
+  cvPath: "/Paul_Eloundou_CV.pdf",
   profileImage: "profile.jpg",
   tagline:
     "Passionate about building beautiful websites, responsive applications, Flutter mobile apps, backend systems and modern UI/UX experiences.",

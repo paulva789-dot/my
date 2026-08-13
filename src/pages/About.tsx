@@ -52,7 +52,7 @@ function About() {
               Download CV
             </a>
             <a
-              href="/Paul_Eloundou_CV.pdf"
+              href={portfolioData.cvPath}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"

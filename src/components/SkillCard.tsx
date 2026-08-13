@@ -1,14 +1,16 @@
+import type { IconType } from "react-icons";
+
 type SkillProps = {
   name: string;
   level?: number;
-  iconClassName?: string;
+  icon?: IconType;
   description?: string;
 };
 
-function SkillCard({ name, level, iconClassName, description }: SkillProps) {
+function SkillCard({ name, level, icon: Icon, description }: SkillProps) {
   return (
     <div className="skill-card">
-      {iconClassName ? <i className={iconClassName}></i> : null}
+      {Icon ? <Icon className="skill-icon" /> : null}
 
       <div className="skill-title">
         <h3>{name}</h3>

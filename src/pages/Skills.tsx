@@ -24,7 +24,7 @@ function Skills() {
               <SkillCard
                 key={`${skill.name}-${index}`}
                 name={skill.name}
-                iconClassName={skill.iconClassName}
+                icon={skill.icon}
                 description={skill.description}
               />
             ))}
@@ -38,7 +38,7 @@ function Skills() {
               <SkillCard
                 key={`${skill.name}-${index}`}
                 name={skill.name}
-                iconClassName={skill.iconClassName}
+                icon={skill.icon}
               />
             ))}
           </div>

@@ -34,9 +34,9 @@ function Home() {
           <h3>What I bring</h3>
           <p>{portfolioData.aboutPreview}</p>
           <div className="home-actions">
-            <a href="/about" className="btn-primary">
+            <Link to="/about" className="btn-primary">
               Read more
-            </a>
+            </Link>
             <a href="#contact" className="btn-secondary">
               Let’s talk
             </a>
