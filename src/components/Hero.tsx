@@ -2,11 +2,18 @@ import profile from "../assets/profile.jpg";
 import Typing from "./Typing";
 import { portfolioData } from "../data/portfoliodata";
 
+const nameParts = portfolioData.name.trim().split(/\s+/);
+const monogram = `${nameParts[0]?.[0] ?? ""}${nameParts[nameParts.length - 1]?.[0] ?? ""}`;
+
 function Hero() {
   return (
     <section className="hero">
+      <span className="hero-watermark" aria-hidden="true">
+        {monogram}
+      </span>
+
       <div className="hero-left">
-        <p className="welcome">👋 Welcome to my Portfolio</p>
+        <p className="welcome">{portfolioData.title}</p>
 
         <h1>
           Hi, I&apos;m <span>{portfolioData.name}</span>
