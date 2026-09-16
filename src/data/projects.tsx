@@ -53,6 +53,15 @@ const projects = [
     github: "#",
     demo: "#",
   },
+  {
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio site showcasing projects, skills and experience with a responsive, theme-aware design.",
+    image: "/images/portfolio.png",
+    technologies: ["React", "TypeScript", "CSS"],
+    github: "#",
+    demo: "#",
+  },
 ];
 
 export default projects;

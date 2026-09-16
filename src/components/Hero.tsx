@@ -29,7 +29,13 @@ function Hero() {
       </div>
 
       <div className="hero-right">
-        <img src={profile} alt={portfolioData.name} />
+        <div className="hero-photo-frame">
+          <img src={profile} alt={portfolioData.name} />
+          <span className="hero-photo-badge">
+            <span className="hero-photo-dot" />
+            Available for work
+          </span>
+        </div>
       </div>
     </section>
   );
